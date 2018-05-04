@@ -1,4 +1,5 @@
-from flask import Flask, render_template, request, redirect
+from flask \
+import Flask, render_template, request, redirect
 app = Flask(__name__)
 
 todolist = []
@@ -23,12 +24,12 @@ def submit():
         return redirect('/')
     else:
         todolist.append(task1)
-        return render_template('index.html', priority=priority, task1=task1, task2=task2, task3=task3, todolist=todolist)
+        return render_template('info.html', priority=priority, task1=task1, task2=task2, task3=task3, todolist=todolist)
 
 @app.route('/clear', methods = ['POST'])
 def clear():
     todolist = []
-    return render_template('index.html', todolist=todolist)
+    return render_template('info.html', todolist=todolist)
 
 if __name__ == "__main__":
     app.run()
